@@ -10,7 +10,7 @@ spec:
         claimName: project2-pvc-jx105
   containers:
     - name: jx105-playlist-recommender-model-container
-      image: docker.io/jasonxie5306/spotify-playlist-recommender-model:0.11
+      image: docker.io/jasonxie5306/spotify-playlist-recommender-model:0.12
       imagePullPolicy: Always
       volumeMounts:
         - name: project2-pv-jx105
