@@ -10,7 +10,7 @@ spec:
         claimName: project2-pvc-jx105
   containers:
     - name: jx105-playlist-recommender-model-container
-      image: docker.io/jasonxie5306/spotify-playlist-recommender-model:0.1
+      image: docker.io/jasonxie5306/spotify-playlist-recommender-model:0.11
       imagePullPolicy: Always
       volumeMounts:
         - name: project2-pv-jx105
@@ -20,3 +20,5 @@ spec:
           value: "https://raw.githubusercontent.com/jason5306/spotify-playlist-recommender-specs/main/playlist-sample-ds1.csv"
         - name: BASE_DIR
           value: "/data"
+        - name: SONGS_DIR
+          value: "https://raw.githubusercontent.com/jason5306/spotify-playlist-recommender-specs/main/songs.csv"            
