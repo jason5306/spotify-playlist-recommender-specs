@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: jx105
+  name: project2-pvc-jx105
+spec:
+  storageClassName: standard
+  volumeName: project2-pv-jx105
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

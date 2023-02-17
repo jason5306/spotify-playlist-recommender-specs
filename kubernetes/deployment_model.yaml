@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jx105-playlist-recommender-model-pod
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: project2-pv-jx105
+      persistentVolumeClaim:
+        claimName: project2-pvc-jx105
+  containers:
+    - name: jx105-playlist-recommender-model-container
+      image: docker.io/jasonxie5306/spotify-playlist-recommender-model:0.1
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: project2-pv-jx105
+          mountPath: /data
+      env:
+        - name: DATASET_PATH
+          value: "https://raw.githubusercontent.com/jason5306/spotify-playlist-recommender-specs/main/playlist-sample-ds1.csv"
+        - name: BASE_DIR
+          value: "/data"

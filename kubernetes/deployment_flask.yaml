@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jx105-playlist-recommender-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jx105-playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: jx105-playlist-recommender
+    spec:
+      volumes:
+      - name: project2-pv-jx105
+        persistentVolumeClaim:
+          claimName: project2-pvc-jx105
+      containers:
+      - name: jx105-playlist-recommender-container
+        image: docker.io/jasonxie5306/spotify-playlist-recommender:0.1
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: project2-pv-jx105
+            mountPath: /data
+        env:
+          - name: BASE_DIR
+            value: "/data"
+          - name: SONGS_DIR
+            value: "https://raw.githubusercontent.com/jason5306/spotify-playlist-recommender-specs/main/songs.csv"            
+        ports: 
+          - containerPort: 30504
