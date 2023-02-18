@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: jx105-playlist-recommender-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: jx105-playlist-recommender
