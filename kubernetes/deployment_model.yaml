@@ -22,4 +22,8 @@ spec:
           value: "/data"
         - name: SONGS_DIR
           value: "https://raw.githubusercontent.com/jason5306/spotify-playlist-recommender-specs/main/songs.csv"            
-
+  operation:
+    sync:
+      syncStrategy:
+        apply:
+          force: true
