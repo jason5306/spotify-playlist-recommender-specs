@@ -4,11 +4,6 @@ metadata:
   name: jx105-playlist-recommender-model-pod
 spec:
   restartPolicy: OnFailure
-  operation:
-    sync:
-      syncStrategy:
-        apply:
-          force: true
   volumes:
     - name: project2-pv-jx105
       persistentVolumeClaim:
