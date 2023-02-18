@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: jx105-playlist-recommender-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: jx105-playlist-recommender
@@ -18,7 +18,7 @@ spec:
           claimName: project2-pvc-jx105
       containers:
       - name: jx105-playlist-recommender-container
-        image: docker.io/jasonxie5306/spotify-playlist-recommender:0.14
+        image: docker.io/jasonxie5306/spotify-playlist-recommender:0.2
         imagePullPolicy: Always
         volumeMounts:
           - name: project2-pv-jx105
@@ -27,6 +27,6 @@ spec:
           - name: BASE_DIR
             value: "/data"      
           - name: VERSION
-            value: "0.1"            
+            value: "0.2"            
         ports: 
           - containerPort: 30504
